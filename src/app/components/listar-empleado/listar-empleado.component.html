@@ -19,7 +19,8 @@
                     <td>{{empleado.correo}} </td>
                     <td>
                         <a class="btn btn-info" routerLink="/editar-empleado/{{empleado.id}}">Editar</a> |
-                        <a class="btn btn-danger" role="button" routerLink="/borrar-empleado/{{empleado.id}}">Borrar</a>
+                        <a class="btn btn-danger" role="button" routerLink="/borrar-empleado/{{empleado.id}}" 
+                        (click)="borrarRegistro(empleado.id, iControl)">Borrar</a>
                     </td>
                 </tr>
             </tbody>

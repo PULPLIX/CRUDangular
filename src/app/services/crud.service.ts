@@ -6,7 +6,7 @@ import { Empleado } from '../models/Empleado';
 const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type': 'application/json',
-    'responseType': 'text' 
+    'responseType': 'text'
   }),
 };
 
@@ -19,10 +19,13 @@ export class CrudService {
 
   constructor(private clienteHTTP: HttpClient) { }
 
-  agregarEmpleado(datosEmpleado: Empleado): Observable<any> {
-    return this.clienteHTTP.post(this.apiUrl + "?insertar=1", datosEmpleado)
+  agregarEmpleado(datosEmpleado: Empleado): Observable<Empleado> {
+    return this.clienteHTTP.post<Empleado>(this.apiUrl + "?insertar=1", datosEmpleado)
   }
-  listarEmpleados(): Observable<Empleado>{
+  listarEmpleados(): Observable<Empleado> {
     return this.clienteHTTP.get<Empleado>(this.apiUrl);
+  }
+  eliminarEmpleado(empleadoID: number): Observable<Empleado> {
+    return this.clienteHTTP.get<Empleado>(this.apiUrl + "?borrar=" + empleadoID)
   }
 }

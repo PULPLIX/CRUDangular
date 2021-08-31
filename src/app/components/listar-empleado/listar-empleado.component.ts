@@ -23,6 +23,12 @@ export class ListarEmpleadoComponent implements OnInit {
 
   borrarRegistro(empleadoID: number, index: number): void{
     console.log(empleadoID)
+    console.log(index)
+    this.crudService.eliminarEmpleado(empleadoID).subscribe(
+      ()=>{
+        
+      }
+    );
   }
 
 }
